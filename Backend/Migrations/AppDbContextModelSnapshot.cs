@@ -227,8 +227,8 @@ namespace _.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(2000)
-                        .HasColumnType("NVARCHAR2(2000)")
+                        .HasMaxLength(3000)
+                        .HasColumnType("NCLOB")
                         .HasColumnName("DESCRIPTION");
 
                     b.Property<decimal>("DiscountPercent")
@@ -258,6 +258,10 @@ namespace _.Migrations
                         .HasDefaultValue(true)
                         .HasColumnName("IS_APPROVED");
 
+                    b.Property<bool>("IsFeatured")
+                        .HasColumnType("BOOLEAN")
+                        .HasColumnName("IS_FEATURED");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("DECIMAL(10,2)")
                         .HasColumnName("PRICE");
@@ -265,6 +269,12 @@ namespace _.Migrations
                     b.Property<int>("SellerId")
                         .HasColumnType("NUMBER(10)")
                         .HasColumnName("SELLER_ID");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("NVARCHAR2(250)")
+                        .HasColumnName("SLUG");
 
                     b.Property<int>("Stock")
                         .HasColumnType("NUMBER(10)")
@@ -275,6 +285,12 @@ namespace _.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("NVARCHAR2(200)")
                         .HasColumnName("TITLE");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR2(50)")
+                        .HasColumnName("UNIT");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("TIMESTAMP(7)")
