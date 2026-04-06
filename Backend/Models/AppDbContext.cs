@@ -68,6 +68,7 @@ namespace Backend.Data
             // ── PRODUCT ───────────────────────────────────────────────────
             mb.Entity<Product>(entity =>
             {
+
                 // One Seller (User) has many Products
                 entity.HasOne(p => p.Seller)
                       .WithMany(u => u.Products)
